@@ -28,7 +28,7 @@ public class RegistryUtil {
 	{
 		block.setRegistryName(RefineryCraft.MODID, name);
 		block.setUnlocalizedName(RefineryCraft.MODID + "." + name);
-		block.setCreativeTab(RefineryCraft.CREATIVE);
+		block.setCreativeTab(RefineryCraft.REFINERY_MAIN);
 		
 		RefineryItems.ITEMS.add(getItemBlockFromBlock(block));
 	}
@@ -37,14 +37,14 @@ public class RegistryUtil {
 	{
 		ItemBlock itemblock = new ItemBlock(block);
 		
-		return itemblock.setRegistryName(block.getRegistryName()).setUnlocalizedName(block.getLocalizedName()).setCreativeTab(RefineryCraft.CREATIVE);
+		return itemblock.setRegistryName(block.getRegistryName()).setUnlocalizedName(block.getLocalizedName()).setCreativeTab(RefineryCraft.REFINERY_MAIN);
 	}
 	
 	public static void helpItem(ItemBasic item, String name)
 	{
 		item.setRegistryName(RefineryCraft.MODID, name);
 		item.setUnlocalizedName(RefineryCraft.MODID + "." + name);
-		item.setCreativeTab(RefineryCraft.CREATIVE);
+		item.setCreativeTab(RefineryCraft.REFINERY_MAIN);
 	}
 	
 	public static void registerFurnaceRecipes()

@@ -31,7 +31,7 @@ public class RefineryCraft {
 	
 	public static Logger LOGGER;
 
-	public static final CreativeTabs CREATIVE = new CreativeTabs(RefineryCraft.MODID) {
+	public static final CreativeTabs REFINERY_MAIN = new CreativeTabs(RefineryCraft.MODID) {
 		public ItemStack getTabIconItem() {
 			return new ItemStack(Item.getItemFromBlock(RefineryBlocks.COPPER_ORE));
 		}
