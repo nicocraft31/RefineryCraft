@@ -17,14 +17,7 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	
 	public void update() {tick();}
 	public abstract void tick();
-	
-	public int addEnergy(int amount) {
-		return storage.addEnergy(amount);
-	}
-	public int removeEnergy(int amount) {
-		return storage.removeEnergy(amount);
-	}
-	
+
 	public void sendUpdate()
 	{
 		RefineryCraft.LOGGER.info("Just sent update to client.");
@@ -55,7 +48,7 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
 		if(capability == CapabilityEnergy.ENERGY)
-			return CapabilityEnergy.ENERGY.cast(getStorage(facing));
+			return CapabilityEnergy.ENERGY.cast(storage);
 		
 		return super.getCapability(capability, facing);
 	}
@@ -68,7 +61,23 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	}
 	
 	@Override
-	public IEnergyStorage getStorage(EnumFacing facing)
+	public int addEnergy(int amount) {
+		return storage.addEnergy(amount);
+	}
+
+	@Override
+	public int removeEnergy(int amount) {
+		return storage.removeEnergy(amount);
+	}
+	
+	@Override
+	public int getEnergy()
+	{
+		return storage.getEnergyStored();
+	}
+	
+	@Override
+	public IEnergyStorage getStorage()
 	{
 		return storage;
 	}

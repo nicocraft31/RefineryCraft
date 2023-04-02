@@ -1,7 +1,7 @@
 package me.nicocraft31.refinery.common.block;
 
 import me.nicocraft31.refinery.RegistryUtil;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyGenerator;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityCoalGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +17,7 @@ public class BlockEnergyGenerator extends Block {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityEnergyGenerator();
+		return new TileEntityCoalGenerator();
 	}
 	
 	@Override

@@ -1,10 +1,15 @@
 itemGroup.refinery=Refinery Craft
 
+tooltip.refinery.shiftdesc=Press LSHIFT for description.
+
+shiftdesc.refinery.battery=A little battery cell which can store up to 50k RF.
+
 item.refinery.copper_plate.name=Copper Plate
 item.refinery.copper_ingot.name=Copper Ingot
 item.refinery.copper_cable.name=Copper Cable
+item.refinery.battery.name=Battery
 
 tile.refinery.copper_ore.name=Copper Ore
 tile.refinery.cable.name=Cable
-tile.refinery.energy_generator.name=Energy Generator
-tile.refinery.energy_consumer.name=Energy Consumer
+tile.refinery.energy_generator.name=Coal Generator
+tile.refinery.energy_consumer.name=Test Consumer

@@ -1,9 +1,9 @@
 package me.nicocraft31.refinery.common.block.tileentity;
 
-import me.nicocraft31.refinery.common.energy.IConsumer;
+import me.nicocraft31.refinery.common.energy.IEnergyConsumer;
 import net.minecraft.util.EnumFacing;
 
-public class TileEntityEnergyConsumer extends TileEntityBasic implements IConsumer {
+public class TileEntityTestConsumer extends TileEntityBasic implements IEnergyConsumer {
 	private final int CONSUMING_AMOUNT = 100;
 	
 	@Override

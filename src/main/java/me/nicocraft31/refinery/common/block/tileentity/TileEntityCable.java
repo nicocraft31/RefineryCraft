@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-import me.nicocraft31.refinery.common.energy.IGenerator;
-import me.nicocraft31.refinery.common.energy.ITransmitter;
+import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
+import me.nicocraft31.refinery.common.energy.IEnergyTransmitter;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -13,7 +13,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.energy.CapabilityEnergy;
 
-public class TileEntityCable extends TileEntityBasic implements ITransmitter {
+public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitter {
 	protected int TRANSFER_AMOUNT = 100;
 	private final List<BlockPos> recievedCables = Lists.newArrayList();
 	
@@ -27,27 +27,36 @@ public class TileEntityCable extends TileEntityBasic implements ITransmitter {
 	{
 		int blocks = 0;
 		int totalAmount = 0;
+		int perBlock = 0;
+		int energy = getEnergy();
+		
+		if(energy == 0)
+			return;
 		
 		for(EnumFacing facing : EnumFacing.values())
 		{
 			BlockPos position = this.pos.offset(facing);
-			IBlockState state = this.world.getBlockState(position);
+			IBlockState state = world.getBlockState(position);
 			Block block = state.getBlock();
 			
 			if(block.hasTileEntity(state))
 			{
 				TileEntity tile = this.world.getTileEntity(position);
-				if(tile instanceof IGenerator)
+				if(tile instanceof IEnergyGenerator)
 					continue;
 				if(tile.hasCapability(CapabilityEnergy.ENERGY, facing.getOpposite()))
 					blocks++;
 			}
 		}
 		
-		if(blocks*TRANSFER_AMOUNT > storage.getEnergy())
-			totalAmount = storage.getEnergy() / blocks;
-		else
-			totalAmount = blocks*TRANSFER_AMOUNT;
+		if(blocks == 0)
+			return;
+		
+		if(energy < TRANSFER_AMOUNT * blocks)
+		{
+			perBlock = getEnergy() / blocks;
+			totalAmount = getEnergy() - (perBlock * blocks);
+		}
 		
 		for(EnumFacing facing : EnumFacing.values())
 		{
@@ -60,22 +69,22 @@ public class TileEntityCable extends TileEntityBasic implements ITransmitter {
 				TileEntity tile = this.world.getTileEntity(position);
 				if(!tile.hasCapability(CapabilityEnergy.ENERGY, facing.getOpposite()))
 					continue;
-				if(tile instanceof IGenerator)
+				if(tile instanceof IEnergyGenerator)
 					continue;
 				if(this.recievedCables.contains(tile.getPos()))
 					continue;
 				
-				if(tile instanceof ITransmitter)
+				if(tile instanceof IEnergyTransmitter)
 				{
-					TileEntityUtil.markCableAsVisitedWithoutConsuming(this, tile, facing, totalAmount);
+					TileEntityUtil.markTransmitterAsVisitedWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
 					continue;
 				}
 				
-				TileEntityUtil.doEnergyInteractionWithoutConsuming(this, tile, facing, totalAmount);
+				TileEntityUtil.doEnergyInteractionWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
 			}
 		}
 		
-		removeEnergy(totalAmount);
+		removeEnergy(getEnergy());
 	}
 	
 	@Override

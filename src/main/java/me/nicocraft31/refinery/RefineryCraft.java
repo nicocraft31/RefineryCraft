@@ -44,6 +44,7 @@ public class RefineryCraft {
 		
 		RefineryBlocks.init();
 		RefineryItems.init();
+		RegistryUtil.registerOreDicts();
 		MinecraftForge.EVENT_BUS.register(new RegistryUtil());
 
 		proxy.preInit(e);

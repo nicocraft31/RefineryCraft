@@ -1,7 +1,7 @@
 package me.nicocraft31.refinery.common.block;
 
 import me.nicocraft31.refinery.RegistryUtil;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyConsumer;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityTestConsumer;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -22,6 +22,6 @@ public class BlockEnergyConsumer extends Block {
 	
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityEnergyConsumer();
+		return new TileEntityTestConsumer();
 	}
 }

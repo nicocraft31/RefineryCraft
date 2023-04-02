@@ -3,8 +3,8 @@ package me.nicocraft31.refinery;
 import me.nicocraft31.refinery.client.gui.GuiHandler;
 import me.nicocraft31.refinery.common.block.RefineryBlocks;
 import me.nicocraft31.refinery.common.block.tileentity.TileEntityCable;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyConsumer;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyGenerator;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityCoalGenerator;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityTestConsumer;
 import me.nicocraft31.refinery.common.item.ItemBasic;
 import me.nicocraft31.refinery.common.item.RefineryItems;
 import net.minecraft.block.Block;
@@ -20,6 +20,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
 public class RegistryUtil {
@@ -62,9 +63,16 @@ public class RegistryUtil {
 	
 	public static void registerTileEntities()
 	{
-		GameRegistry.registerTileEntity(TileEntityEnergyGenerator.class, new ResourceLocation(RefineryCraft.MODID, "energy_generator"));
+		GameRegistry.registerTileEntity(TileEntityCoalGenerator.class, new ResourceLocation(RefineryCraft.MODID, "energy_generator"));
 		GameRegistry.registerTileEntity(TileEntityCable.class, new ResourceLocation(RefineryCraft.MODID, "cable"));
-		GameRegistry.registerTileEntity(TileEntityEnergyConsumer.class, new ResourceLocation(RefineryCraft.MODID, "energy_consumer"));
+		GameRegistry.registerTileEntity(TileEntityTestConsumer.class, new ResourceLocation(RefineryCraft.MODID, "energy_consumer"));
+	}
+	
+	public static void registerOreDicts()
+	{
+		OreDictionary.registerOre("oreCopper", RefineryBlocks.COPPER_ORE);
+		OreDictionary.registerOre("ingotCopper", RefineryItems.COPPER_INGOT);
+		OreDictionary.registerOre("plateCopper", RefineryItems.COPPER_PLATE);
 	}
 	
 	public static void registerWorldGeneration()

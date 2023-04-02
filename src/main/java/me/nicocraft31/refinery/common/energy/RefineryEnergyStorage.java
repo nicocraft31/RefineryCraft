@@ -28,7 +28,7 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		int simulate_amount = Math.min(capacity - energy, Math.min(this.maxReceive, amount));
 		
 		if(!simulate)
-			this.energy += simulate_amount;
+			setEnergy(this.energy + simulate_amount);
 		return simulate_amount;
 	}
 	
@@ -40,7 +40,7 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		int simulate_amount = Math.min(this.energy, Math.min(this.maxExtract, amount));
 		
 		if(!simulate)
-			this.energy -= simulate_amount;
+			setEnergy(this.energy - simulate_amount);
 		return simulate_amount;
 	}
 	
@@ -49,9 +49,10 @@ public class RefineryEnergyStorage extends EnergyStorage {
         return this.maxReceive > 0;
     }
 	
-	public int getEnergy()
+	public int setEnergy(int amount)
 	{
-		return this.energy;
+		this.energy = amount;
+		return amount;
 	}
 	
 	public int addEnergy(int amount)
@@ -62,6 +63,11 @@ public class RefineryEnergyStorage extends EnergyStorage {
 	public int removeEnergy(int amount)
 	{
 		return extractEnergy(amount, false);
+	}
+
+	public int getEnergy()
+	{
+		return this.energy;
 	}
 	
 	public void readFromNBT(NBTTagCompound nbt)
