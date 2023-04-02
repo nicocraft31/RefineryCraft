@@ -3,7 +3,7 @@ package me.nicocraft31.refinery.common.block.tileentity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumFacing;
 
-public class TileEntityEnergyGenerator extends TileEntityEnergySharing {
+public class TileEntityEnergyGenerator extends TileEntityGenerator {
 	public TileEntityEnergyGenerator()
 	{
 		SHARE_AMOUNT = 100;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
-import me.nicocraft31.refinery.common.energy.ISharingEnergyProvider;
+import me.nicocraft31.refinery.common.energy.IGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.energy.CapabilityEnergy;
 
-public abstract class TileEntityEnergySharing extends TileEntityBasic implements ISharingEnergyProvider {
+public abstract class TileEntityGenerator extends TileEntityBasic implements IGenerator {
 	protected static int SHARE_AMOUNT = 100;
 	protected final List<TileEntity> ignoredTileEntities = Lists.newArrayList();
 	

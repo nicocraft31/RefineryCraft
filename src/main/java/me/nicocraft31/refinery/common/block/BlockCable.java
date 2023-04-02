@@ -14,7 +14,7 @@ public class BlockCable extends Block {
 		super(Material.ROCK);
 		RegistryUtil.helpBlock(this, "cable");
 	}
-
+	
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;

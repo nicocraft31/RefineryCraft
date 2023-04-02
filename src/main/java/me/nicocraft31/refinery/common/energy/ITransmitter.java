@@ -5,6 +5,6 @@ import java.util.List;
 import net.minecraft.util.math.BlockPos;
 
 public interface ITransmitter extends IEnergyProvider {
-	void transmitEnergy();
+	public void transmit();
 	public List<BlockPos> getRecievedCables();
 }

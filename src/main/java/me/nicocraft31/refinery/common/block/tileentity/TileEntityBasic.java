@@ -1,8 +1,8 @@
 package me.nicocraft31.refinery.common.block.tileentity;
 
 import me.nicocraft31.refinery.RefineryCraft;
-import me.nicocraft31.refinery.common.energy.RefineryEnergyStorage;
 import me.nicocraft31.refinery.common.energy.IEnergyProvider;
+import me.nicocraft31.refinery.common.energy.RefineryEnergyStorage;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.SPacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntity;
@@ -17,7 +17,7 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	
 	public void update() {tick();}
 	public abstract void tick();
-
+	
 	public int addEnergy(int amount) {
 		return storage.addEnergy(amount);
 	}
@@ -54,7 +54,7 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	
 	@Override
 	public <T> T getCapability(Capability<T> capability, EnumFacing facing) {
-		if(capability == CapabilityEnergy.ENERGY) 
+		if(capability == CapabilityEnergy.ENERGY)
 			return CapabilityEnergy.ENERGY.cast(getStorage(facing));
 		
 		return super.getCapability(capability, facing);
