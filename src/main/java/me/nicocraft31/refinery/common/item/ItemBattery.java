@@ -7,6 +7,11 @@ public class ItemBattery extends ItemEnergyBasic implements IShiftableInformatio
 		super("battery", 50000, 50000);
 	}
 
+	@Override
+	public boolean hasSpace() {
+		return true;
+	}
+	
 	public String getShiftDescription() {
 		return LocalizationHelper.format(IShiftableInformation.getShiftLocalization(name));
 	}

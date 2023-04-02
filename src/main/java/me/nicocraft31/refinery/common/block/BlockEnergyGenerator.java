@@ -1,18 +1,17 @@
 package me.nicocraft31.refinery.common.block;
 
-import me.nicocraft31.refinery.RegistryUtil;
+import me.nicocraft31.refinery.client.LocalizationHelper;
 import me.nicocraft31.refinery.common.block.tileentity.TileEntityCoalGenerator;
-import net.minecraft.block.Block;
+import me.nicocraft31.refinery.common.item.IShiftableInformation;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockEnergyGenerator extends Block {
+public class BlockEnergyGenerator extends BlockBasic implements IShiftableInformation {
 	public BlockEnergyGenerator()
 	{
-		super(Material.ROCK);
-		RegistryUtil.helpBlock(this, "energy_generator");
+		super(Material.ROCK, "energy_generator");
 	}
 
 	@Override
@@ -23,5 +22,15 @@ public class BlockEnergyGenerator extends Block {
 	@Override
 	public boolean hasTileEntity(IBlockState state) {
 		return true;
+	}
+
+	@Override
+	public boolean hasSpace() {
+		return false;
+	}
+	
+	@Override
+	public String getShiftDescription() {
+		return LocalizationHelper.format(IShiftableInformation.getShiftLocalization(name));
 	}
 }

@@ -1,4 +1,4 @@
-package me.nicocraft31.refinery.common.item;
+package me.nicocraft31.refinery.common.block;
 
 import java.util.List;
 
@@ -7,19 +7,22 @@ import org.lwjgl.input.Keyboard;
 import me.nicocraft31.refinery.RefineryCraft;
 import me.nicocraft31.refinery.RegistryUtil;
 import me.nicocraft31.refinery.client.LocalizationHelper;
+import me.nicocraft31.refinery.common.item.IShiftableInformation;
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.util.ITooltipFlag;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public abstract class ItemBasic extends Item {
-	protected String name;
+public abstract class BlockBasic extends Block {
+	protected final String name;
 	private boolean hasShiftDescription = this instanceof IShiftableInformation;
 	
-	public ItemBasic(String name)
-	{
+	public BlockBasic(Material materialIn, String name) {
+		super(materialIn);
 		this.name = name;
-		RegistryUtil.helpItem(this, name);
+		
+		RegistryUtil.helpBlock(this, name);
 	}
 
 	@Override
@@ -28,12 +31,14 @@ public abstract class ItemBasic extends Item {
 			return;
 			
 		boolean shift = Keyboard.isKeyDown(Keyboard.KEY_LSHIFT);
-		if(!tooltip.isEmpty())
+		IShiftableInformation info = (IShiftableInformation) this; 
+		
+		if(info.hasSpace())
 			tooltip.add("");
 		
 		if(shift)
 		{
-			tooltip.add(((IShiftableInformation)this).getShiftDescription());
+			tooltip.add(info.getShiftDescription());
 		}
 		else
 		{

@@ -4,6 +4,10 @@ tooltip.refinery.shiftdesc=Press LSHIFT for description.
 
 shiftdesc.refinery.battery=A little battery cell which can store up to 50k RF.
 
+shiftdesc.refinery.cable=Transmitts energy at a rate of 100 RF/t.
+shiftdesc.refinery.energy_generator=Works by putting furnace fuel on it and gives 100 RF/t.
+shiftdesc.refinery.energy_consumer=Consumes 100 RF/t.
+
 item.refinery.copper_plate.name=Copper Plate
 item.refinery.copper_ingot.name=Copper Ingot
 item.refinery.copper_cable.name=Copper Cable

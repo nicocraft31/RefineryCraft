@@ -1,18 +1,17 @@
 package me.nicocraft31.refinery.common.block;
 
-import me.nicocraft31.refinery.RegistryUtil;
+import me.nicocraft31.refinery.client.LocalizationHelper;
 import me.nicocraft31.refinery.common.block.tileentity.TileEntityCable;
-import net.minecraft.block.Block;
+import me.nicocraft31.refinery.common.item.IShiftableInformation;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-public class BlockCable extends Block {
+public class BlockCable extends BlockBasic implements IShiftableInformation {
 	public BlockCable()
 	{
-		super(Material.ROCK);
-		RegistryUtil.helpBlock(this, "cable");
+		super(Material.ROCK, "cable");
 	}
 	
 	@Override
@@ -23,5 +22,15 @@ public class BlockCable extends Block {
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
 		return new TileEntityCable();
+	}
+
+	@Override
+	public boolean hasSpace() {
+		return false;
+	}
+	
+	@Override
+	public String getShiftDescription() {
+		return LocalizationHelper.format(IShiftableInformation.getShiftLocalization(name));
 	}
 }
