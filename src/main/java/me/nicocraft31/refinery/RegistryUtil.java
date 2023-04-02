@@ -1,0 +1,110 @@
+package me.nicocraft31.refinery;
+
+import me.nicocraft31.refinery.client.gui.GuiHandler;
+import me.nicocraft31.refinery.common.block.RefineryBlocks;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityCable;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyConsumer;
+import me.nicocraft31.refinery.common.block.tileentity.TileEntityEnergyGenerator;
+import me.nicocraft31.refinery.common.item.ItemBasic;
+import me.nicocraft31.refinery.common.item.RefineryItems;
+import net.minecraft.block.Block;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemBlock;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.event.RegistryEvent.Register;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
+import net.minecraftforge.fml.common.registry.GameRegistry;
+
+@EventBusSubscriber
+public class RegistryUtil {
+	public static void helpBlock(Block block, String name)
+	{
+		block.setRegistryName(RefineryCraft.MODID, name);
+		block.setUnlocalizedName(RefineryCraft.MODID + "." + name);
+		block.setCreativeTab(RefineryCraft.CREATIVE);
+		
+		RefineryItems.ITEMS.add(getItemBlockFromBlock(block));
+	}
+	
+	public static Item getItemBlockFromBlock(Block block)
+	{
+		ItemBlock itemblock = new ItemBlock(block);
+		
+		return itemblock.setRegistryName(block.getRegistryName()).setUnlocalizedName(block.getLocalizedName()).setCreativeTab(RefineryCraft.CREATIVE);
+	}
+	
+	public static void helpItem(ItemBasic item, String name)
+	{
+		item.setRegistryName(RefineryCraft.MODID, name);
+		item.setUnlocalizedName(RefineryCraft.MODID + "." + name);
+		item.setCreativeTab(RefineryCraft.CREATIVE);
+	}
+	
+	public static void registerFurnaceRecipes()
+	{
+		GameRegistry.addSmelting(RefineryBlocks.COPPER_ORE, new ItemStack(RefineryItems.COPPER_INGOT), 10f);
+	}
+
+	public static void registerCraftingRecipes()
+	{
+	}
+	
+	public static void registerGuis()
+	{
+		NetworkRegistry.INSTANCE.registerGuiHandler(RefineryCraft.instance, new GuiHandler());
+	}
+	
+	public static void registerTileEntities()
+	{
+		GameRegistry.registerTileEntity(TileEntityEnergyGenerator.class, new ResourceLocation(RefineryCraft.MODID, "energy_generator"));
+		GameRegistry.registerTileEntity(TileEntityCable.class, new ResourceLocation(RefineryCraft.MODID, "cable"));
+		GameRegistry.registerTileEntity(TileEntityEnergyConsumer.class, new ResourceLocation(RefineryCraft.MODID, "energy_consumer"));
+	}
+	
+	public static void registerWorldGeneration()
+	{
+	}
+	
+	@SubscribeEvent
+	public void onBlockRegister(Register<Block> e)
+	{
+		for(Block b : RefineryBlocks.BLOCKS)
+		{
+			e.getRegistry().register(b);
+		}
+		
+		registerTileEntities();
+	}
+
+	@SubscribeEvent
+	public void onItemRegister(Register<Item> e)
+	{
+		for(Item i : RefineryItems.ITEMS)
+		{
+			e.getRegistry().register(i);
+		}
+	}
+	
+	@SubscribeEvent
+	public void onModelRegister(ModelRegistryEvent e)
+	{
+		for(Item i : RefineryItems.ITEMS)
+		{
+			ModelLoader.setCustomModelResourceLocation(i, 0, 
+					new ModelResourceLocation(i.getRegistryName(), "inventory"));
+		}
+	
+		for(Block i : RefineryBlocks.BLOCKS)
+		{
+			Item item = Item.getItemFromBlock(i);
+			ModelLoader.setCustomModelResourceLocation(item, 0, 
+					new ModelResourceLocation(item.getRegistryName(), "inventory"));
+		}
+	}
+}

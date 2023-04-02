@@ -1,0 +1,10 @@
+itemGroup.refinery=Refinery Craft
+
+item.refinery.copper_plate.name=Copper Plate
+item.refinery.copper_ingot.name=Copper Ingot
+item.refinery.copper_cable.name=Copper Cable
+
+tile.refinery.copper_ore.name=Copper Ore
+tile.refinery.cable.name=Cable
+tile.refinery.energy_generator.name=Energy Generator
+tile.refinery.energy_consumer.name=Energy Consumer

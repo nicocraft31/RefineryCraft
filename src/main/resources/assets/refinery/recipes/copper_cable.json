@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"AAA",
+		"BBB",
+		"AAA"
+	],
+	
+	"key":
+	{
+		"A":
+		{
+			"type": "forge:ore_dict",
+			"ore": "wool"
+		},
+		
+		"B":
+		{
+			"item": "refinery:copper_plate"
+		}
+	},
+	
+	"result":
+	{
+		"item": "refinery:copper_cable",
+		"count": 6
+	}
+}

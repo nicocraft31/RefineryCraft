@@ -1,0 +1,8 @@
+item.refinery.copper_plate.name=Lámina de Cobre
+item.refinery.copper_ingot.name=Lingote de Cobre
+item.refinery.copper_cable.name=Cable de Cobre
+
+tile.refinery.copper_ore.name=Mena de Cobre
+tile.refinery.cable.name=Cable
+tile.refinery.energy_generator.name=Generador de Energía
+tile.refinery.energy_consumer.name=Consumidor de Energía

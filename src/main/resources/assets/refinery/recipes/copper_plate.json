@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"   ",
+		"   ",
+		"AAA"
+	],
+	
+	"key":
+	{
+		"A":
+		{
+			"item": "refinery:copper_ingot"
+		}
+	},
+	
+	"result":
+	{
+		"item": "refinery:copper_plate",
+		"count": 3
+	}
+}
