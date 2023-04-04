@@ -1,6 +1,7 @@
 package me.nicocraft31.refinery.common.block.tileentity;
 
 import me.nicocraft31.refinery.common.energy.IEnergyProvider;
+import me.nicocraft31.refinery.common.energy.EnergyUnit;
 import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
 import me.nicocraft31.refinery.common.energy.IEnergyTransmitter;
 import net.minecraft.block.Block;
@@ -28,6 +29,35 @@ public class TileEntityUtil {
 		return mrf;
 	}
 	
+	public static float toGRF(int rf)
+	{
+		float grf = rf / 1000000000;
+		return grf;
+	}
+	
+	public static EnergyUnit getBestEnergyUnit(int rf)
+	{
+		if(rf < EnergyUnit.KRF_RATE)
+		{
+			return EnergyUnit.RF;
+		}
+		else if(rf >= EnergyUnit.KRF_RATE && rf < EnergyUnit.MRF_RATE)
+		{
+			return EnergyUnit.KRF;
+		}
+		else if(rf >= EnergyUnit.MRF_RATE)
+		{
+			return EnergyUnit.MRF;
+		}
+		
+		return EnergyUnit.RF;
+	}
+	
+	/**
+	 * 
+	 * I also copied this from someone's code but I can't even remember who I stealed from.
+	 * 
+	 */
 	public static void sendUpdateToAllPlayers(TileEntity tile)
 	{
 		WorldServer world = (WorldServer) tile.getWorld();
