@@ -16,6 +16,18 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 
 public class TileEntityUtil {
+	public static float tooKRF(int rf)
+	{
+		float krf = rf / 1000;
+		return krf;
+	}
+
+	public static float toMRF(int rf)
+	{
+		float mrf = rf / 1000000;
+		return mrf;
+	}
+	
 	public static void sendUpdateToAllPlayers(TileEntity tile)
 	{
 		WorldServer world = (WorldServer) tile.getWorld();
@@ -30,7 +42,7 @@ public class TileEntityUtil {
         }
 	}
 
-	public static void doEnergyInteraction(TileEntity src, TileEntity dest, EnumFacing srcFacing, int amount)
+	public static int doEnergyInteraction(TileEntity src, TileEntity dest, EnumFacing srcFacing, int amount)
 	{
 		// Directly copied from ActuallyAditions' code:
 		// https://github.com/Ellpeck/ActuallyAdditions/blob/12206a03a383a035758d6615c5da3ae32adaac81/src/main/java/de/ellpeck/actuallyadditions/mod/util/WorldUtil.java#L121
@@ -46,10 +58,12 @@ public class TileEntityUtil {
                 if (drain > 0) {
                     int filled = handlerTo.receiveEnergy(drain, false);
                     handlerFrom.extractEnergy(filled, false);
-                    return;
+                    return filled;
                 }
             }
         }
+	
+		return 0;
 	}
 	
 	public static int doEnergyInteractionWithoutConsuming(TileEntity src, TileEntity dest, EnumFacing srcFacing, int amount)
@@ -64,13 +78,10 @@ public class TileEntityUtil {
             IEnergyStorage handlerTo = dest.getCapability(CapabilityEnergy.ENERGY, opp);
             if (handlerFrom != null && handlerTo != null)
             {
-            	int drain = handlerFrom.extractEnergy(amount, true);
-                if (drain > 0) {
-                    int filled = handlerTo.receiveEnergy(drain, false);
-                    return filled;
-                }
+                 int filled = handlerTo.receiveEnergy(amount, false);
+                 return filled;
             }
-        }
+		}
 	
 		return 0;
 	}

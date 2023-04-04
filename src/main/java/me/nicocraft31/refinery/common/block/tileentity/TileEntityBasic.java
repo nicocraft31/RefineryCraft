@@ -77,7 +77,7 @@ public abstract class TileEntityBasic extends TileEntity implements ITickable, I
 	}
 	
 	@Override
-	public IEnergyStorage getStorage()
+	public RefineryEnergyStorage getStorage()
 	{
 		return storage;
 	}
