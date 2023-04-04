@@ -17,3 +17,4 @@ tile.refinery.copper_ore.name=Copper Ore
 tile.refinery.cable.name=Cable
 tile.refinery.energy_generator.name=Coal Generator
 tile.refinery.energy_consumer.name=Test Consumer
+tile.refinery.solar_panel.name=Solar Panel
