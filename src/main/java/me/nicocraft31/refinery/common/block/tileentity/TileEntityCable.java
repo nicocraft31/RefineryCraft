@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.common.collect.Lists;
 
+import me.nicocraft31.refinery.common.energy.EnergyUtil;
 import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
 import me.nicocraft31.refinery.common.energy.IEnergyTransmitter;
 import net.minecraft.block.Block;
@@ -76,15 +77,15 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 				
 				if(tile instanceof IEnergyTransmitter)
 				{
-					TileEntityUtil.markTransmitterAsVisitedWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
+					EnergyUtil.markTransmitterAsVisitedWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
 					continue;
 				}
 				
-				TileEntityUtil.doEnergyInteractionWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
+				EnergyUtil.doEnergyInteractionWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
 			}
 		}
 		
-		removeEnergy(getEnergy());
+		removeEnergy(totalAmount);
 	}
 	
 	@Override

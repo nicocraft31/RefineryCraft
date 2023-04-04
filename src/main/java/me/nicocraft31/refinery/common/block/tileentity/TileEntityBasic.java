@@ -10,7 +10,6 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ITickable;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
-import net.minecraftforge.energy.IEnergyStorage;
 
 public abstract class TileEntityBasic extends TileEntity implements ITickable, IEnergyProvider {
 	protected RefineryEnergyStorage storage = new RefineryEnergyStorage(290290);

@@ -7,7 +7,7 @@ public enum EnergyUnit {
 	KRF(1),
 	MRF(2),
 	GRF(3);
-	
+
 	private int id;
 	
 	public static int KRF_RATE = 1000;
@@ -27,9 +27,9 @@ public enum EnergyUnit {
 		case RF:
 			return (float) rf;
 		case KRF:
-			return TileEntityUtil.toKRF(rf);
+			return EnergyUtil.toKRF(rf);
 		case MRF:
-			return TileEntityUtil.toMRF(rf);
+			return EnergyUtil.toMRF(rf);
 		default:
 			return 0f;
 		}

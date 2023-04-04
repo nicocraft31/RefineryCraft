@@ -1,5 +1,6 @@
 package me.nicocraft31.refinery.common.block.tileentity;
 
+import me.nicocraft31.refinery.common.energy.EnergyUtil;
 import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -48,7 +49,7 @@ public class TileEntitySolarPanel extends TileEntityBasic implements IEnergyGene
 				
 				if(tile.hasCapability(CapabilityEnergy.ENERGY, facing))
 				{
-					TileEntityUtil.doEnergyInteractionWithoutConsuming(tile, tile, facing, amountForEachTileEntity);
+					EnergyUtil.doEnergyInteractionWithoutConsuming(tile, tile, facing, amountForEachTileEntity);
 					blocks++;
 				}
 			}
