@@ -17,7 +17,7 @@ import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 
 public class TileEntityUtil {
-	public static float tooKRF(int rf)
+	public static float toKRF(int rf)
 	{
 		float krf = rf / 1000;
 		return krf;
@@ -55,7 +55,7 @@ public class TileEntityUtil {
 	
 	/**
 	 * 
-	 * I also copied this from someone's code but I can't even remember who I stealed from.
+	 * I also copied this from someone's code but I can't even remember who I copied from.
 	 * 
 	 */
 	public static void sendUpdateToAllPlayers(TileEntity tile)
