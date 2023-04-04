@@ -2,11 +2,8 @@ package me.nicocraft31.refinery;
 
 import me.nicocraft31.refinery.client.gui.GuiHandler;
 import me.nicocraft31.refinery.common.block.RefineryBlocks;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityCable;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityCoalGenerator;
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityTestConsumer;
-import me.nicocraft31.refinery.common.item.ItemBasic;
-import me.nicocraft31.refinery.common.item.RefineryItems;
+import me.nicocraft31.refinery.common.block.tileentity.*;
+import me.nicocraft31.refinery.common.item.*;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -66,6 +63,7 @@ public class RegistryUtil {
 		GameRegistry.registerTileEntity(TileEntityCoalGenerator.class, new ResourceLocation(RefineryCraft.MODID, "energy_generator"));
 		GameRegistry.registerTileEntity(TileEntityCable.class, new ResourceLocation(RefineryCraft.MODID, "cable"));
 		GameRegistry.registerTileEntity(TileEntityTestConsumer.class, new ResourceLocation(RefineryCraft.MODID, "energy_consumer"));
+		GameRegistry.registerTileEntity(TileEntitySolarPanel.class, new ResourceLocation(RefineryCraft.MODID, "solar_panel"));
 	}
 	
 	public static void registerOreDicts()
