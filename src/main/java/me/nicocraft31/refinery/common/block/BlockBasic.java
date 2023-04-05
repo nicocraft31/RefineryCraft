@@ -45,4 +45,9 @@ public abstract class BlockBasic extends Block {
 			tooltip.add(LocalizationHelper.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
 		}
 	}
+	
+	public boolean hasShiftDescription()
+	{
+		return this.hasShiftDescription;
+	}
 }

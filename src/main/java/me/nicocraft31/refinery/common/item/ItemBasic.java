@@ -40,4 +40,9 @@ public abstract class ItemBasic extends Item {
 			tooltip.add(LocalizationHelper.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
 		}
 	}
+	
+	public boolean hasShiftDescription()
+	{
+		return this.hasShiftDescription;
+	}
 }
