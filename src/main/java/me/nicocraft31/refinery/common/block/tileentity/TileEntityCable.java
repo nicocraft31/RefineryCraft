@@ -61,6 +61,9 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 		
 		for(EnumFacing facing : EnumFacing.values())
 		{
+			if(getEnergy() <= 0)
+				return;
+			
 			BlockPos position = this.pos.offset(facing);
 			IBlockState state = this.world.getBlockState(position);
 			Block block = state.getBlock();
@@ -74,6 +77,12 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 					continue;
 				if(this.recievedCables.contains(tile.getPos()))
 					continue;
+				
+				int transfer = TRANSFER_AMOUNT;
+				if(transfer > getEnergy())
+				{
+					transfer = getEnergy();
+				}
 				
 				if(tile instanceof IEnergyTransmitter)
 				{

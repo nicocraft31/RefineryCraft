@@ -6,7 +6,7 @@ import org.lwjgl.input.Keyboard;
 
 import me.nicocraft31.refinery.RefineryCraft;
 import me.nicocraft31.refinery.RegistryUtil;
-import me.nicocraft31.refinery.client.LocalizationHelper;
+import me.nicocraft31.refinery.client.ClientUtil;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -37,7 +37,7 @@ public abstract class ItemBasic extends Item {
 		}
 		else
 		{
-			tooltip.add(LocalizationHelper.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
+			tooltip.add(ClientUtil.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
 		}
 	}
 	

@@ -1,6 +1,6 @@
 package me.nicocraft31.refinery.common.item;
 
-import me.nicocraft31.refinery.client.LocalizationHelper;
+import me.nicocraft31.refinery.client.ClientUtil;
 
 public class ItemBattery extends ItemEnergyBasic implements IShiftableInformation {
 	public ItemBattery() {
@@ -13,6 +13,6 @@ public class ItemBattery extends ItemEnergyBasic implements IShiftableInformatio
 	}
 	
 	public String getShiftDescription() {
-		return LocalizationHelper.format(IShiftableInformation.getShiftLocalization(name));
+		return ClientUtil.format(IShiftableInformation.getShiftLocalization(name));
 	}
 }

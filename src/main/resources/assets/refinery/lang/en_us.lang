@@ -6,6 +6,9 @@ item.refinery.copper_plate.name=Copper Plate
 item.refinery.copper_ingot.name=Copper Ingot
 item.refinery.copper_cable.name=Copper Cable
 item.refinery.battery.name=Battery
+item.refinery.wireless_linker.name=Wireless Linker
+item.refinery.wireless_linker.success=Set coordinates from block
+item.refinery.wireless_linker.tooltip=Block:
 
 tile.refinery.copper_ore.name=Copper Ore
 tile.refinery.cable.name=Cable
@@ -13,6 +16,7 @@ tile.refinery.energy_generator.name=Coal Generator
 tile.refinery.energy_consumer.name=Test Consumer
 tile.refinery.solar_panel.name=Solar Panel
 tile.refinery.wireless.name=Wireless Transmitter
+tile.refinery.wireless.success=Added coordinates to Transmitter
 
 shiftdesc.refinery.battery=A little battery cell which can store up to 50k RF.
 

@@ -77,8 +77,6 @@ public class TileEntityWirelessTransciver extends TileEntityBasic {
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
-		transmittingBlocks.clear();
-		
 		NBTTagList positions = (NBTTagList) nbt.getTag("pos");
 		int i = nbt.getInteger("numpos");
 		
@@ -90,7 +88,7 @@ public class TileEntityWirelessTransciver extends TileEntityBasic {
 			int z = temp.getInteger("z");
 		
 			BlockPos pos = new BlockPos(x, y, z);
-			transmittingBlocks.add(pos);
+			transmittingBlocks.set(j, pos);
 		}
 		
 		super.readFromNBT(nbt);

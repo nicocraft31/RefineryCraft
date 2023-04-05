@@ -2,6 +2,7 @@ package me.nicocraft31.refinery;
 
 import org.apache.logging.log4j.Logger;
 
+import me.nicocraft31.refinery.client.ClientUtil;
 import me.nicocraft31.refinery.common.block.RefineryBlocks;
 import me.nicocraft31.refinery.common.item.RefineryItems;
 import me.nicocraft31.refinery.common.proxy.Proxy;
@@ -46,6 +47,7 @@ public class RefineryCraft {
 		RefineryItems.init();
 		RegistryUtil.registerOreDicts();
 		MinecraftForge.EVENT_BUS.register(new RegistryUtil());
+		MinecraftForge.EVENT_BUS.register(new ClientUtil());
 
 		proxy.preInit(e);
 	}

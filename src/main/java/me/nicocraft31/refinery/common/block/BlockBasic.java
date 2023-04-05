@@ -6,7 +6,7 @@ import org.lwjgl.input.Keyboard;
 
 import me.nicocraft31.refinery.RefineryCraft;
 import me.nicocraft31.refinery.RegistryUtil;
-import me.nicocraft31.refinery.client.LocalizationHelper;
+import me.nicocraft31.refinery.client.ClientUtil;
 import me.nicocraft31.refinery.common.item.IShiftableInformation;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -42,7 +42,7 @@ public abstract class BlockBasic extends Block {
 		}
 		else
 		{
-			tooltip.add(LocalizationHelper.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
+			tooltip.add(ClientUtil.format("tooltip."+RefineryCraft.MODID+".shiftdesc"));
 		}
 	}
 	

@@ -1,6 +1,6 @@
 package me.nicocraft31.refinery.common.block;
 
-import me.nicocraft31.refinery.client.LocalizationHelper;
+import me.nicocraft31.refinery.client.ClientUtil;
 import me.nicocraft31.refinery.common.block.tileentity.TileEntityTestConsumer;
 import me.nicocraft31.refinery.common.item.IShiftableInformation;
 import net.minecraft.block.material.Material;
@@ -31,6 +31,6 @@ public class BlockEnergyConsumer extends BlockBasic implements IShiftableInforma
 	
 	@Override
 	public String getShiftDescription() {
-		return LocalizationHelper.format(IShiftableInformation.getShiftLocalization(name));
+		return ClientUtil.format(IShiftableInformation.getShiftLocalization(name));
 	}
 }
