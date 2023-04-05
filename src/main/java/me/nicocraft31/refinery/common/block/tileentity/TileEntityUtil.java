@@ -7,9 +7,7 @@ import net.minecraft.world.WorldServer;
 
 public class TileEntityUtil {
 	/**
-	 * 
 	 * I also copied this from someone's code but I can't even remember who I copied from.
-	 * 
 	 */
 	public static void sendUpdateToAllPlayers(TileEntity tile)
 	{
