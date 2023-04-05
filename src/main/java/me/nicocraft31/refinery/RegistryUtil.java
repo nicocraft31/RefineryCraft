@@ -64,6 +64,7 @@ public class RegistryUtil {
 		GameRegistry.registerTileEntity(TileEntityCable.class, new ResourceLocation(RefineryCraft.MODID, "cable"));
 		GameRegistry.registerTileEntity(TileEntityTestConsumer.class, new ResourceLocation(RefineryCraft.MODID, "energy_consumer"));
 		GameRegistry.registerTileEntity(TileEntitySolarPanel.class, new ResourceLocation(RefineryCraft.MODID, "solar_panel"));
+		GameRegistry.registerTileEntity(TileEntityWirelessTransciver.class, new ResourceLocation(RefineryCraft.MODID, "wireless"));
 	}
 	
 	public static void registerOreDicts()

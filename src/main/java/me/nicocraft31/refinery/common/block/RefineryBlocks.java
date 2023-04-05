@@ -14,6 +14,8 @@ public class RefineryBlocks {
 	public static Block ENERGY_GENERATOR = null;
 	public static Block ENERGY_CONSUMER = null;
 	public static Block SOLAR_PANEL = null;
+	public static Block WIRELESS_TRANSCIVER = null;
+	
 	
 	public static void init()
 	{
@@ -22,6 +24,7 @@ public class RefineryBlocks {
 		ENERGY_GENERATOR = addBlock(new BlockEnergyGenerator());
 		ENERGY_CONSUMER = addBlock(new BlockEnergyConsumer());
 		SOLAR_PANEL = addBlock(new BlockSolarPanel());
+		WIRELESS_TRANSCIVER = addBlock(new BlockWirelessTransciver());
 	}
 	
 	public static Block addBlock(Block block) {BLOCKS.add(block); return block;}

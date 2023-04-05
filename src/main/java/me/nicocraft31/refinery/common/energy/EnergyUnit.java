@@ -1,7 +1,5 @@
 package me.nicocraft31.refinery.common.energy;
 
-import me.nicocraft31.refinery.common.block.tileentity.TileEntityUtil;
-
 public enum EnergyUnit {
 	RF(0),
 	KRF(1),
