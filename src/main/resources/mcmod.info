@@ -5,10 +5,10 @@
   "description": "A mod built to offer unique crafting and industrial experiences.",
   "version": "1.0",
   "mcversion": "1.12.2",
-  "url": "",
+  "url": "https://github.com/nicocraft31/RefineryCraft",
   "updateUrl": "",
   "authorList": ["NicoCraft31"],
-  "credits": "Director: NicoCraft31",
+  "credits": "NicoCraft31",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
