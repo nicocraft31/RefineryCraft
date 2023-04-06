@@ -27,8 +27,6 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 	public void transmit()
 	{
 		int blocks = 0;
-		int totalAmount = 0;
-		int perBlock = 0;
 		int energy = getEnergy();
 		
 		if(energy == 0)
@@ -53,17 +51,8 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 		if(blocks == 0)
 			return;
 		
-		if(energy < TRANSFER_AMOUNT * blocks)
-		{
-			perBlock = getEnergy() / blocks;
-			totalAmount = getEnergy() - (perBlock * blocks);
-		}
-		
 		for(EnumFacing facing : EnumFacing.values())
 		{
-			if(getEnergy() <= 0)
-				return;
-			
 			BlockPos position = this.pos.offset(facing);
 			IBlockState state = this.world.getBlockState(position);
 			Block block = state.getBlock();
@@ -86,15 +75,13 @@ public class TileEntityCable extends TileEntityBasic implements IEnergyTransmitt
 				
 				if(tile instanceof IEnergyTransmitter)
 				{
-					EnergyUtil.markTransmitterAsVisitedWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
+					EnergyUtil.markTransmitterAsVisited(this, tile, facing, transfer);
 					continue;
 				}
 				
-				EnergyUtil.doEnergyInteractionWithoutConsuming(this, tile, facing, TRANSFER_AMOUNT);
+				EnergyUtil.doEnergyInteraction(this, tile, facing, transfer);
 			}
 		}
-		
-		removeEnergy(totalAmount);
 	}
 	
 	@Override

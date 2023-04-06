@@ -20,6 +20,7 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		super(capacity, maxReceive, maxExtract, energy);
 	}
 
+	@Override
 	public int receiveEnergy(int amount, boolean simulate)
 	{
 		if(!canReceive())
@@ -32,6 +33,7 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		return simulate_amount;
 	}
 	
+	@Override
 	public int extractEnergy(int amount, boolean simulate)
 	{
 		if(!canExtract()) 
@@ -44,10 +46,17 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		return simulate_amount;
 	}
 	
+	@Override
 	public boolean canReceive()
     {
         return this.maxReceive > 0;
     }
+	
+	@Override
+	public boolean canExtract() 
+	{
+		return this.maxExtract > 0;
+	}
 	
 	public int setEnergy(int amount)
 	{
