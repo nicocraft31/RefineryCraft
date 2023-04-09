@@ -33,6 +33,13 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		return simulate_amount;
 	}
 	
+	public int receiveEnergyNoChecks(int amount)
+	{
+		int simulate_amount = Math.min(capacity - energy, amount);
+		setEnergy(this.energy + simulate_amount);
+		return simulate_amount;
+	}
+	
 	@Override
 	public int extractEnergy(int amount, boolean simulate)
 	{
@@ -43,6 +50,13 @@ public class RefineryEnergyStorage extends EnergyStorage {
 		
 		if(!simulate)
 			setEnergy(this.energy - simulate_amount);
+		return simulate_amount;
+	}
+	
+	public int extractEnergyNoChecks(int amount)
+	{
+		int simulate_amount = Math.min(this.energy, amount);
+		setEnergy(this.energy - simulate_amount);
 		return simulate_amount;
 	}
 	
@@ -66,12 +80,12 @@ public class RefineryEnergyStorage extends EnergyStorage {
 	
 	public int addEnergy(int amount)
 	{
-		return receiveEnergy(amount, false);
+		return receiveEnergyNoChecks(amount);
 	}
 	
 	public int removeEnergy(int amount)
 	{
-		return extractEnergy(amount, false);
+		return extractEnergyNoChecks(amount);
 	}
 
 	public int getEnergy()
