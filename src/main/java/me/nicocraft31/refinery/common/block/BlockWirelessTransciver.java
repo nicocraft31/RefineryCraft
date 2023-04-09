@@ -35,7 +35,6 @@ public class BlockWirelessTransciver extends BlockBasic {
 				if(te.getTransmittingBlocks().contains(position))
 					return false;
 				te.getTransmittingBlocks().add(position);
-				RefineryCraft.LOGGER.info("d");
 				ClientUtil.sendStatusMessage(playerIn, ClientUtil.format("tile.refinery.wireless.success"));
 				return true;
 			}
