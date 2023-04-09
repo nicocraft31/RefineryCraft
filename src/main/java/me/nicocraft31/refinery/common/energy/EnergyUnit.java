@@ -20,18 +20,18 @@ public enum EnergyUnit {
 
 	public float fromRF(int rf)
 	{
-		EnergyUnit unit = this;
-		
-		switch(unit)
+		switch(id)
 		{
-		case RF:
+		case 0:
 			return (float) rf;
-		case KRF:
+		case 1:
 			return EnergyUtil.toKRF(rf);
-		case MRF:
+		case 2:
 			return EnergyUtil.toMRF(rf);
+		case 3:
+			return EnergyUtil.toGRF(rf);
 		default:
-			return 0f;
+			return 0.f;
 		}
 	}
 	
