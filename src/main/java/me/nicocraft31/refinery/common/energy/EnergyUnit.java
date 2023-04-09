@@ -1,19 +1,21 @@
 package me.nicocraft31.refinery.common.energy;
 
 public enum EnergyUnit {
-	RF(0),
-	KRF(1),
-	MRF(2),
-	GRF(3);
+	RF  (0, "RF" ),
+	KRF (1, "kRF"),
+	MRF (2, "MRF"),
+	GRF (3, "GRF");
 
 	private int id;
+	private String string;
 	
 	public static int KRF_RATE = 1000;
 	public static int MRF_RATE = 1000000;
 	
-	private EnergyUnit(int id)
+	private EnergyUnit(int id, String string)
 	{
 		this.id = id;
+		this.string = string;
 	}
 
 	public float fromRF(int rf)
@@ -31,6 +33,16 @@ public enum EnergyUnit {
 		default:
 			return 0f;
 		}
+	}
+	
+	@Override
+	public String toString() {
+		return getString();
+	}
+	
+	public String getString()
+	{
+		return this.string;
 	}
 	
 	public int getId()
