@@ -25,6 +25,9 @@ public class TileEntityWirelessTransciver extends TileEntityBasic {
 		
 		for(BlockPos pos : transmittingBlocks)
 		{
+			if(!this.world.isBlockLoaded(pos))
+				continue;
+			
 			IBlockState state = this.world.getBlockState(pos);
 			Block block = state.getBlock();
 			
@@ -77,6 +80,8 @@ public class TileEntityWirelessTransciver extends TileEntityBasic {
 	
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
+		transmittingBlocks.clear();
+		
 		NBTTagList positions = (NBTTagList) nbt.getTag("pos");
 		int i = nbt.getInteger("numpos");
 		
