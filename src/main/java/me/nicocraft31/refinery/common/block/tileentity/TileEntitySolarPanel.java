@@ -2,6 +2,7 @@ package me.nicocraft31.refinery.common.block.tileentity;
 
 import me.nicocraft31.refinery.common.energy.EnergyUtil;
 import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
+import me.nicocraft31.refinery.common.energy.RefineryEnergyStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.tileentity.TileEntity;
@@ -16,6 +17,11 @@ import net.minecraftforge.energy.CapabilityEnergy;
  *
  */
 public class TileEntitySolarPanel extends TileEntityBasic implements IEnergyGenerator {
+	public TileEntitySolarPanel()
+	{
+		storage = new RefineryEnergyStorage(290290, 0, 290290);
+	}
+	
 	@Override
 	public void tick() {
 		if(!this.world.isRemote)

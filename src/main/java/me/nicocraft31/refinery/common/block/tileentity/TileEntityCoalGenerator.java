@@ -2,6 +2,7 @@ package me.nicocraft31.refinery.common.block.tileentity;
 
 import me.nicocraft31.refinery.common.energy.EnergyUtil;
 import me.nicocraft31.refinery.common.energy.IEnergyGenerator;
+import me.nicocraft31.refinery.common.energy.RefineryEnergyStorage;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,6 +12,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraftforge.energy.CapabilityEnergy;
 
 public class TileEntityCoalGenerator extends TileEntityBasic implements IEnergyGenerator {
+	public TileEntityCoalGenerator()
+	{
+		storage = new RefineryEnergyStorage(290290, 0, 290290);
+	}
+	
 	@Override
 	public void tick()
 	{

@@ -1,6 +1,5 @@
 package me.nicocraft31.refinery.common.block;
 
-import me.nicocraft31.refinery.RefineryCraft;
 import me.nicocraft31.refinery.client.ClientUtil;
 import me.nicocraft31.refinery.common.block.tileentity.TileEntityWirelessTransciver;
 import me.nicocraft31.refinery.common.item.ItemLinker;
