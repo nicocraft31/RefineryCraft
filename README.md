@@ -1,6 +1,6 @@
 # Refinery Craft
 
-A Minecraft 1.12.2 mod I develop in my free time (Which in any way is NEARLY finished).
+A Minecraft 1.12.2 mod I develop in my free time (Which isn't in any way NEARLY finished).
 Now I'm just planing and "developing" the mod, which means, LATER, I'll update to modern versions.
 
 ## Setup and run
